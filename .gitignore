@@ -197,3 +197,9 @@ cython_debug/
 # Model
 *.pth
 *.pt
+
+# Images 
+*.png
+*.jpg
+*.jpeg
+*.webp
