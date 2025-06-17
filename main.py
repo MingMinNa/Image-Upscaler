@@ -11,7 +11,7 @@ PROJECT_FOLDER = os.path.dirname(__file__)
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = None
 model_path = None
-upscaling_bound = (1000, 1000)
+upscaling_bound = (None, None)
 
 
 def search_folders(folder_path):
@@ -67,7 +67,7 @@ def select_model(scaling_factor):
     model = RealESRGAN(device, scale = scaling_factor)
     model_path = os.path.join('weights', f'RealESRGAN_x{scaling_factor:1d}.pth')
     model.load_weights(model_path, download = True)
-    upscaling_bound = (4000 / scaling_factor, 4000 / scaling_factor)
+    upscaling_bound = (3000 / scaling_factor, 3000 / scaling_factor)
     
     return
 
